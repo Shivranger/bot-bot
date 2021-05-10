@@ -13,11 +13,11 @@ bot.on('ready', () => {
 bot.on('message', msg => {
 
   var sender = msg.author
-  var msg = mesg.content.toUpperCase();
+  var message = msg.content.toUpperCase();
 
   var prefix = '>'
 
-  if(msg === prefix + 'PING') {
+  if(message === prefix + 'PING') {
     msg.channel.send('Pong!')
   }
 });
