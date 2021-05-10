@@ -20,5 +20,6 @@ bot.on('message', msg => {
   if(message === prefix + 'PING') {
     msg.channel.send('Pong!')
   }
+
 });
 
