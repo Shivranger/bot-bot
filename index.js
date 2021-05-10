@@ -11,7 +11,14 @@ bot.on('ready', () => {
 });
 
 bot.on('message', msg => {
-    if (msg.content === 'ping') {
-      msg.reply('pong');
-    }
+
+  var sender = msg.author
+  var msg = mesg.content.toUpperCase();
+
+  var prefix = '>'
+
+  if(msg === prefix + 'PING') {
+    msg.channel.send('Pong!')
+  }
 });
+
