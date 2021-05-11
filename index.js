@@ -51,9 +51,14 @@ bot.on('message', msg => {
 
   let commandfile = bot.commands.get(cmd);
   if(commandfile){
-    commandfile.run(bot,msg,args);
+    commandfile.run(bot,msg,args,sender);
   }else{
-    msg.channel.send('I cannot do that.');
+    if(cmd === 'QUESA'){
+      msg.channel.send('I cannot do that... yet.')
+    }else{
+         msg.channel.send('I cannot do that.');
+    }
+ 
   }
 
   if(message === commandPrefix + 'PING') {
