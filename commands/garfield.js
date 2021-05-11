@@ -7,8 +7,8 @@ exports.run = async (bot, message, args, sender) =>{
     case 'NEW':
       garfield.new(message);
       break;
-    case 'random':
-      // message.channel.send(garfield.random());
+    case 'RANDOM':
+      garfield.random(message);
       break;
   }
 }
@@ -17,11 +17,14 @@ const garfield = {
   new: (message) => {
       let date = new Date();
       getComic(`${BASE_URL}${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate() }`, message);
+  },
+  random: (message) => {
+    let date = randomDate(new Date(1978, 5, 19), new Date());
+    getComic(`${BASE_URL}${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate() }`, message);
   }
 }
 
 async function getComic(url, message){
-  let comic;
   await axios
       .get(url)
       .then((response) => {
@@ -34,6 +37,10 @@ async function getComic(url, message){
       .catch((error) => {
           console.error(error)
       });
+}
+
+function randomDate(start, end) {
+  return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
 }
 
 exports.help = {
