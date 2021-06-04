@@ -12,5 +12,5 @@ let getComic = async function(url, message){
             console.error(error)
         });
   }
-
-  module.exports = getComic;
+            
+  export default getComic;
