@@ -1,6 +1,7 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
 const BASE_URL = 'https://www.gocomics.com/calvinandhobbes/'; 
+const getComic = require('../utils/comicUtils.js').default;
 
 exports.run = async (bot, message, args, sender) =>{
   switch (args[0]){
@@ -12,19 +13,19 @@ exports.run = async (bot, message, args, sender) =>{
       break;
   }
 }
-
+console.log('getComic', getComic);
 const garfield = {
   new: (message) => {
       let date = new Date();
-      getComic(`${BASE_URL}${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate() }`, message);
+      getComicFunction(`${BASE_URL}${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate() }`, message);
   },
   random: (message) => {
     let date = randomDate(new Date(1985,11, 18), new Date());
-    getComic(`${BASE_URL}${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate() }`, message);
+    getComicFunction(`${BASE_URL}${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate() }`, message);
   }
 }
 
-async function getComic(url, message){
+async function getComicFunction(url, message){
   await axios
       .get(url)
       .then((response) => {
