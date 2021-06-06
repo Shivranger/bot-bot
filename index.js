@@ -1,11 +1,11 @@
 require('dotenv').config();
+const myFunc = require('./utils/testutils.js');
 
 const TOKEN = process.env.DISCORD_BOT_TOKEN; 
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const fs = require('fs');
 const commandPrefix = '!'
-
 
 bot.commands = new Discord.Collection();
 
@@ -35,7 +35,6 @@ bot.on('ready', () => {
 });
 
 bot.on('message', msg => {
-
   let sender = msg.author
   if(sender.bot){
     return;
