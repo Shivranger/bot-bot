@@ -13,4 +13,4 @@ let getComic = async function(url, message){
         });
   }
             
-  export default getComic;
+  exports.getComic = getComic;
