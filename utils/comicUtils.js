@@ -1,3 +1,6 @@
+const axios = require('axios');
+const cheerio = require('cheerio');
+
 let getComic = async function(url, message){
     await axios
         .get(url)
@@ -12,5 +15,4 @@ let getComic = async function(url, message){
             console.error(error)
         });
   }
-            
   exports.getComic = getComic;
