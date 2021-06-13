@@ -6,14 +6,15 @@ const comicUtils = require('../utils/comicUtils.js');
 exports.run = async (bot, message, args, sender) =>{
   switch (args[0]){
     case 'NEW':
-      garfield.new(message);
+      calvinhobbes.new(message);
       break;
     case 'RANDOM':
-      garfield.random(message);
+      calvinhobbes.random(message);
       break;
   }
 }
-const garfield = {
+
+const calvinhobbes = {
   new: (message) => {
       let date = new Date();
       getComicFunction(`${BASE_URL}${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate() }`, message);
