@@ -1,5 +1,4 @@
 require('dotenv').config();
-const myFunc = require('./utils/testutils.js');
 
 const TOKEN = process.env.DISCORD_BOT_TOKEN; 
 const Discord = require('discord.js');
